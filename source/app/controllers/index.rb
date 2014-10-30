@@ -1,13 +1,13 @@
 get '/' do
   # Look in app/views/index.erb
-  if session[:user_id]
-    @route_origin = "You've logged in! your user id is: #{session[:user_id]}"
-    @signout = "<a href = '/logout'>sign out link?</a>"
-    erb :index
-  else
-    @route_origin = "Welcome! Please log in"
-    erb :index
-  end
+  # if session[:user_id]
+  #   @route_origin = "You've logged in! your user id is: #{session[:user_id]}"
+  #   erb :index
+  # else
+  #   @route_origin = "Welcome! Please log in"
+  #   erb :index
+  # end
+  erb :index
 end
 
 post '/' do

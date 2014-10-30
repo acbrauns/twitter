@@ -2,6 +2,7 @@ get '/' do
   # Look in app/views/index.erb
   if session[:user_id]
     @route_origin = "You've logged in! your user id is: #{session[:user_id]}"
+    @signout = "<a href = '/logout'>sign out link?</a>"
     erb :index
   else
     @route_origin = "Welcome! Please log in"
@@ -15,7 +16,8 @@ post '/' do
   if @user.password_hash == params[:password]
     session[:user_id] = @user.id
     @route_origin = "You've logged in! your user id is: #{@user.id}"
-    erb :index
+
+    redirect "/"
   else
     @route_origin = "You're not logged in!"
     erb :index
@@ -38,6 +40,12 @@ end
 get '/logged_in' do
 
 end
+
+get '/logout' do
+  session.clear
+  redirect "/"
+end
+
 
 
 #todo: test session sepparate file?

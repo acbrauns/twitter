@@ -10,7 +10,6 @@ get '/' do
 end
 
 get '/home' do
-
   @user = User.find(session[:user_id])
   @tweet = Tweet.all
   erb :home
@@ -32,14 +31,6 @@ end
 
 post '/signin' do
   @user = User.find_by(username: params[:username])
-  p "*****start*****"
-  p "@user >>>>"
-  p @user
-  p "@user.password >>>>"
-  p @user.password
-  p "params[password] >>>>"
-  p params[:password]
-  p "*****end*****"
 
   if @user.password == params[:password]
     session[:user_id] = @user.id

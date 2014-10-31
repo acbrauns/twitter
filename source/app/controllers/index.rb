@@ -12,16 +12,16 @@ end
 
 get '/home' do
   # erb :home
-  @tweets = Tweets.find_by[:id]
+  # @tweets = Tweets.find_by[:id]
 end
 
 
 
-post '/tweet' do
-  user_id = session[:user_id]
-  Tweet.create(content: params[:content], user: params[user_id])
-  redirect "/home"
-end
+# post '/tweet' do
+#   user_id = session[:user_id]
+#   Tweet.create(content: params[:content], user: params[user_id])
+#   redirect "/home"
+# end
 
 
 

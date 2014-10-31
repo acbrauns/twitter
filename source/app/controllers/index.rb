@@ -1,4 +1,3 @@
-###
 get '/' do
   # Look in app/views/index.erb
   if session[:user_id]
@@ -27,13 +26,22 @@ end
 
 post '/signin' do
   @user = User.find_by(username: params[:username])
-  if @user.password_hash == params[:password]
+  p "*****start*****"
+  p "@user >>>>"
+  p @user
+  p "@user.password >>>>"
+  p @user.password
+  p "params[password] >>>>"
+  p params[:password]
+  p "*****end*****"
+
+  if @user.password == params[:password]
     session[:user_id] = @user.id
-    @route_origin = "You've logged in! your user id is: #{@user.id}"
+
     redirect "/"
   else
     @route_origin = "Incorrect Login. Please try again."
-    erb :index
+    redirect "/"
   end
 end
 
@@ -43,9 +51,18 @@ get '/sign_up' do
 end
 
 post '/sign_up' do
-  @route_origin = "You're signed up (to be fixed later)"
-  @user = User.create(username: params[:username], password_hash: params[:password], email: params[:email])
-  erb :index
+
+  @user = User.create(username: params[:username])
+  p @user
+  @user.password = params[:password]
+
+  @user.save!
+  p "*****************"
+  p @user
+  p "*****************"
+  session[:user_id] = @user.id
+  redirect "/"
+
 end
 
 get '/logged_in' do

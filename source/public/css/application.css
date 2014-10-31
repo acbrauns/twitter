@@ -30,4 +30,16 @@ form{
   position: absolute;
   top: 3%;
   margin-left: 80%;
+  background-color: black;
+  color: #FFF;
+  border-radius: 5px;
+  border: 2px;
 }
+input[type=submit]{
+  background-color: black;
+  color: #FFF;
+  border-radius: 5px;
+  border: 2px;
+}
+
+

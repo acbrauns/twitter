@@ -26,7 +26,7 @@ end
 
 post '/signin' do
   @user = User.find_by(username: params[:username])
-  if @user.password_hash == params[:password]
+  if @user.password == params[:password]
     session[:user_id] = @user.id
     @route_origin = "You've logged in! your user id is: #{@user.id}"
     redirect "/"
@@ -43,8 +43,7 @@ end
 
 post '/sign_up' do
   @route_origin = "You're signed up (to be fixed later)"
-  @user = User.create(username: params[:username], password_hash: params[:password],
-  email: params[:email])
+  @user = User.create(params)
   erb :index
 end
 

@@ -10,8 +10,10 @@ get '/' do
 end
 
 get '/home' do
+
   @tweet = Tweet.all
   erb :home
+
   #@tweets = Tweets.find_by[:id]
 end
 
@@ -26,7 +28,6 @@ get '/tweet' do
   erb :tweet
 
 end
-
 
 post '/signin' do
   @user = User.find_by(username: params[:username])

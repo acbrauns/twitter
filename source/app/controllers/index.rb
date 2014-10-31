@@ -52,7 +52,7 @@ get '/logged_in' do
 
 end
 
-get '/logout' do
+post '/logout' do
   session.clear
   redirect "/"
 end

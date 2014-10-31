@@ -7,3 +7,8 @@
 th {
   text-align: left;
 }
+
+header{
+  display: inline-block;
+  background-color: orange;
+}

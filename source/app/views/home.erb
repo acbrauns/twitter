@@ -1,0 +1,20 @@
+<div class="tweets">
+  <h2><%= @user.username %></h2>
+
+  <h3>Post a new tweet</h3>
+  <form action="/tweet" method="post">
+    <textarea name="content"></textarea>
+    <input type="submit" value="Tweet">
+  </form>
+
+  <h3>Your tweets</h3>
+  <% @user.tweets.reverse_each do |tweet| %>
+    <center><div class="show_tweet">
+      <p><%= tweet.content %></p>
+    </div></center>
+  <% end %>
+
+
+
+
+</div>

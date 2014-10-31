@@ -10,16 +10,18 @@ get '/' do
 end
 
 get '/home' do
-   erb :home
-  #@tweets = Tweets.find_by[:id]
+  @user = User.find(session[:user_id])
+  erb :home
 end
+
 
 
 post '/tweet' do
-  user_id = session[:user_id]
-  Tweet.create(content: params[:content], username: params[user_id])
+  user = User.find(session[:user_id])
+  Tweet.create(content: params[:content], user: user)
   redirect "/home"
 end
+
 
 
 post '/signin' do
@@ -67,7 +69,7 @@ get '/logged_in' do
 
 end
 
-get '/logout' do
+post '/logout' do
   session.clear
   redirect "/"
 end

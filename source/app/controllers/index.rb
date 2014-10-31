@@ -10,7 +10,9 @@ get '/' do
 end
 
 get '/home' do
+
   @user = User.find(session[:user_id])
+  @tweet = Tweet.all
   erb :home
 end
 
@@ -22,6 +24,10 @@ post '/tweet' do
   redirect "/home"
 end
 
+get '/tweet' do
+  erb :tweet
+
+end
 
 
 post '/signin' do
@@ -74,6 +80,11 @@ post '/logout' do
   redirect "/"
 end
 
+
+delete '/user_tweet/delete/:id' do
+  Tweet.find(params[:id]).destroy
+  redirect "/"
+end
 
 
 #todo: test session sepparate file?

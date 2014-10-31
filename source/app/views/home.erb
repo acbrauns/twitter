@@ -1,10 +1,10 @@
 
-<div class="tweets">
-  <h2><%= @user.username %></h2>
+<center><div class="tweets">
+  <h2>Hello, <%= @user.username %>!</h2>
 
   <h3>Post a new tweet</h3>
   <form action="/tweet" method="post">
-    <textarea name="content"></textarea>
+    <textarea name="content"></textarea><br>
     <input type="submit" value="Tweet">
   </form>
 
@@ -14,8 +14,4 @@
       <p><%= tweet.content %></p>
     </div></center>
   <% end %>
-
-
-
-
-</div>
+</div></center>

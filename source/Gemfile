@@ -15,7 +15,8 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
-
+gem 'bcrypt-ruby'
+gem 'bcrypt'
 gem 'shotgun'
 
 group :test do
